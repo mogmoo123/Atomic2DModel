@@ -10,7 +10,7 @@ data = data.fillna(value='')
 def hex2BGR(hex : str=None):
     return [int(hex[2:4],16),int(hex[4:6],16),int(hex[0:2],16)]
 
-def AtomicRadius(
+def Atomic(
         number = 1,
         rate = 10,
 ):
