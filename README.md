@@ -1,10 +1,12 @@
 # Atomic2DModel
-Bohr Atmoic Model in Python
+Bohr Atmoic Model and Elements in Python
+보어 원자 모형과 원소의 성질을 출력하는 모시깽이 프로그램
 
 # 사용법
 - 원소 기호 입력칸에 기호를 입력(대소문자 구분)하고 Input 버튼을 누르면 됩니다.
-## GUI의 모습
+## GUI
 ![image](https://github.com/mogmoo123/Atomic2DModel/assets/73155376/f266ee4e-f5f1-46b7-b73a-2725c0179067)
+I used PaPaGo which is translating machine, So English may be awkward. sry
 
 # 원리
 ## 전자 채우는 원리
@@ -13,19 +15,15 @@ Bohr Atmoic Model in Python
 이 각도를 라디안값인 θ로 두고, x좌표와 y좌표를 θ와 전자 껍질의 반지름 r을 이용해 나타내면 **x=r x sin(θ) y=r x cos(θ)** 가 됩니다. 그후 (x,y) 좌표에 전자를 그립니다.
 이를 각 원자 껍질의 원자 갯수만큼씩 반복해서 각각의 원자 껍질을 하나하나씩 채워가며 전자를 모두 채웁니다.
 
-# 주기율표
+# 주기율표 The Periodic Table
 주기율표의 csv파일은 PubChem에서 가져 왔습니다.
 [PubChem](https://pubchem.ncbi.nlm.nih.gov/periodic-table/)
 
-# 코드
-변수 n : 원자번호
-함수 Atomic : 보어의 원자 모형 그리기
-
 # 추가사항
-- tkinter을 활용한 GUI
+- tkinter을 활용한 GUI [v]
 - 이미지 저장기능
-- 원소의 모형 뿐만 아니라 더 자세한 사항들을 출력할 수 있도록 만들 예정 (전기 음성도, 산화수, 이름, 상온에서의 상태 ...)
+- 원소의 모형 뿐만 아니라 더 자세한 사항들을 출력할 수 있도록 만들 예정 (~전기 음성도~, 산화수, ~이름~, 상온에서의 상태 ...)
 
 # 패치노트
-2024.02.02 - 경로 오류 수정, 파일 다운로드 & 모형에 글씨 추가, 이미지 파일 추가
-2024.02.03 - gui추가 (전기음성도, 원자량, 원자 모형, 이름, 원소기호 입력칸)
+24.2.2v | 2024.02.02 - 경로 오류 수정, 파일 다운로드 & 모형에 글씨 추가, 이미지 파일 추가
+24.2.3v | 2024.02.03 - gui추가 (전기음성도, 원자량, 원자 모형, 이름, 원소기호 입력칸)
