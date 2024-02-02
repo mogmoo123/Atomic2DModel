@@ -3,6 +3,8 @@ Bohr Atmoic Model in Python
 
 # 사용법
 - 원소 기호 입력칸에 기호를 입력(대소문자 구분)하고 Input 버튼을 누르면 됩니다.
+## GUI의 모습
+![image](https://github.com/mogmoo123/Atomic2DModel/assets/73155376/f266ee4e-f5f1-46b7-b73a-2725c0179067)
 
 # 원리
 ## 전자 채우는 원리
