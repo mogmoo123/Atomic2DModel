@@ -1,6 +1,6 @@
 # Atomic2DModel
-
 Bohr Atmoic Model and Elements in Python
+
 보어 원자 모형과 원소의 성질을 출력하는 모시깽이 프로그램
 
 # 사용법
@@ -27,4 +27,5 @@ I used PaPaGo which is translating machine, So English may be awkward. sry
 
 # 패치노트
 24.2.2v | 2024.02.02 - 경로 오류 수정, 파일 다운로드 & 모형에 글씨 추가, 이미지 파일 추가
+
 24.2.3v | 2024.02.03 - gui추가 (전기음성도, 원자량, 원자 모형, 이름, 원소기호 입력칸)
