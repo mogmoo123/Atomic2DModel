@@ -1,5 +1,6 @@
 # Atomic2DModel
-Bohr Atmoic Model and Elements in Python \n
+
+Bohr Atmoic Model and Elements in Python
 보어 원자 모형과 원소의 성질을 출력하는 모시깽이 프로그램
 
 # 사용법
