@@ -1,5 +1,5 @@
 # Atomic2DModel
-Bohr Atmoic Model and Elements in Python
+Bohr Atmoic Model and Elements in Python \n
 보어 원자 모형과 원소의 성질을 출력하는 모시깽이 프로그램
 
 # 사용법
@@ -20,9 +20,9 @@ I used PaPaGo which is translating machine, So English may be awkward. sry
 [PubChem](https://pubchem.ncbi.nlm.nih.gov/periodic-table/)
 
 # 추가사항
-- tkinter을 활용한 GUI [v]
+- tkinter을 활용한 GUI (추가 완료)
 - 이미지 저장기능
-- 원소의 모형 뿐만 아니라 더 자세한 사항들을 출력할 수 있도록 만들 예정 (~전기 음성도~, 산화수, ~이름~, 상온에서의 상태 ...)
+- 원소의 모형 뿐만 아니라 더 자세한 사항들을 출력할 수 있도록 만들 예정 (전기 음성도 (추가 완료) , 산화수, 이름(추가 완료), 상온에서의 상태 ...)
 
 # 패치노트
 24.2.2v | 2024.02.02 - 경로 오류 수정, 파일 다운로드 & 모형에 글씨 추가, 이미지 파일 추가
