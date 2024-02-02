@@ -4,7 +4,7 @@ import numpy as np
 from math import sin,cos,pi,radians
 
 
-data = pd.read_csv('files/PubChemElements_all.csv')
+data = pd.read_csv('../files/PubChemElements_all.csv')
 data = data.fillna(value='')
 
 def hex2BGR(hex : str=None):
@@ -143,7 +143,7 @@ def Atomic(
             cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-7*2,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
     cv2.imshow('Atomic',model)
     if download == True:
-        cv2.imwrite(f'img/{number+1}_{data["Name"][number]}.png',model)
+        cv2.imwrite(f'../img/{number+1}_{data["Name"][number]}.png',model)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
