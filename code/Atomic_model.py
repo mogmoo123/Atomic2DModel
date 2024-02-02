@@ -4,7 +4,7 @@ import numpy as np
 from math import sin,cos,pi,radians
 
 
-data = pd.read_csv('../files/PubChemElements_all.csv')
+data = pd.read_csv('files/PubChemElements_all.csv')
 data = data.fillna(value='')
 
 def hex2BGR(hex : str=None):
@@ -50,9 +50,6 @@ def Atomic(
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
         #보여주기
-        cv2.imshow('Atomic',model)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
     elif R == '' and hexcolor != '':
         #원자핵
         r = 245/rate
@@ -80,14 +77,11 @@ def Atomic(
                     pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
-        cv2.imshow('Atomic',model)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
     elif hexcolor == '' and R != '':
         r = R/rate
         model = np.full((400,400,3),(255,255,255))
         model = np.array(model, dtype=np.uint8)
-        cv2.circle(model,radius=int(r),center=(200,200),color = (0,0,0),thickness=-1)
+        cv2.circle(model,radius=int(r),center=(200,200),color = (251,121,255),thickness=-1)
         cv2.circle(model,radius=int(r),center=(200,200),color = (0,0,0),thickness=1)
         #전자
         #전자 껍질
@@ -109,15 +103,11 @@ def Atomic(
                     pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
-        cv2.imshow('Atomic',model)
-
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
     else:
         r = 245/rate
         model = np.full((400,400,3),(255,255,255))
         model = np.array(model, dtype=np.uint8)
-        cv2.circle(model,radius=int(r),center=(200,200),color = (0,0,0),thickness=-1)
+        cv2.circle(model,radius=int(r),center=(200,200),color = (251,121,255),thickness=-1)
         cv2.circle(model,radius=int(r),center=(200,200),color = (0,0,0),thickness=1)
         
         #전자
@@ -140,11 +130,23 @@ def Atomic(
                     pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
+    if len(data['Symbol'][number]) == 1:
+        
+        if data['Symbol'][number][0] == 'I':
+            cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-3,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
+        else:
+            cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-7,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
+    else:
+        if data['Symbol'][number][0] == 'I' or data['Symbol'][number][1] == 'i' or data['Symbol'][number][1] == 'l':
+            cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-7*2+4,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
+        else:
+            cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-7*2,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
+    cv2.imshow('Atomic',model)
+    if download == True:
+        cv2.imwrite(f'img/{number+1}_{data["Name"][number]}.png',model)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-        cv2.imshow('Atomic',model)
-
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
 if __name__ == '__main__':
-    n= 118
-    Atomic(number=n,rate=10)
+    n= 49
+    Atomic(number=n,rate=10,download=False)
