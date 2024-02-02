@@ -45,12 +45,12 @@ def Atomic(
             if remains >= 0:
                 for j in range(junjas[i]):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             else:
                 for j in range(junjas[i]+remains):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
         #보여주기
@@ -73,12 +73,12 @@ def Atomic(
             if remains >= 0:
                 for j in range(junjas[i]):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             else:
                 for j in range(junjas[i]+remains):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
     elif hexcolor == '' and R != '':
@@ -99,12 +99,12 @@ def Atomic(
             if remains >= 0:
                 for j in range(junjas[i]):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             else:
                 for j in range(junjas[i]+remains):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
     else:
@@ -126,12 +126,12 @@ def Atomic(
             if remains >= 0:
                 for j in range(junjas[i]):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             else:
                 for j in range(junjas[i]+remains):
                     theta = radians(360/junjas[i]*j)
-                    pos = (int(R_*sin(theta)+200),int(200-R_*cos(theta)))
+                    pos = (int(200-R_*cos(theta)),int(R_*sin(theta)+200))
                     cv2.circle(model,radius=3,center=pos,color=(175,0,0),thickness=-1)
             i+=1 
     if len(data['Symbol'][number]) == 1:
