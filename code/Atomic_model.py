@@ -4,7 +4,7 @@ import numpy as np
 from math import sin,cos,pi,radians
 
 
-data = pd.read_csv('files/PubChemElements_all.csv')
+data = pd.read_csv('../files/PubChemElements_all.csv')
 data = data.fillna(value='')
 
 def hex2BGR(hex : str=None):
@@ -13,6 +13,8 @@ def hex2BGR(hex : str=None):
 def Atomic(
         number = 1,
         rate = 10,
+        download : bool = False,
+        
 ):
     number -= 1
     R = data['AtomicRadius'][number]
@@ -144,5 +146,5 @@ def Atomic(
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 if __name__ == '__main__':
-    n= 10
-    AtomicRadius(number=n,rate=10)
+    n= 118
+    Atomic(number=n,rate=10)
