@@ -7,6 +7,7 @@ Bohr Atmoic Model and Elements in Python
 - 원소 기호 입력칸에 기호를 입력(대소문자 구분)하고 Input 버튼을 누르면 됩니다.
 ## GUI
 ![image](https://github.com/mogmoo123/Atomic2DModel/assets/73155376/f266ee4e-f5f1-46b7-b73a-2725c0179067)
+
 I used PaPaGo which is translating machine, So English may be awkward. sry
 
 # 원리
