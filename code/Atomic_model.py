@@ -5,7 +5,8 @@ from math import sin,cos,pi,radians
 from tkinter import *
 from PIL import Image,ImageTk
 
-data = pd.read_csv('../files/PubChemElements_all.csv') #배포용
+#data = pd.read_csv('../files/PubChemElements_all.csv') #배포용
+data = pd.read_csv('files/PubChemElements_all.csv')
 data = data.fillna(value='')
 
 
@@ -13,13 +14,15 @@ def hex2BGR(hex : str=None):
     return [int(hex[2:4],16),int(hex[4:6],16),int(hex[0:2],16)]
 
 atimg = None
+model = None
+N = 0
 def Atomic(
         number = 1,
         rate = 10,
         download : bool = False,
         
 ):
-    global atimg
+    global atimg, model
     number -= 1
     R = data['AtomicRadius'][number]
     hexcolor = data['CPKHexColor'][number]
@@ -83,7 +86,7 @@ def Atomic(
             i+=1 
     elif hexcolor == '' and R != '':
         r = R/rate
-        model = np.full((400,400,3),(255,255,255))
+        model = np.full((400,400,3),(224,224,224))
         model = np.array(model, dtype=np.uint8)
         cv2.circle(model,radius=int(r),center=(200,200),color = (251,121,255),thickness=-1)
         cv2.circle(model,radius=int(r),center=(200,200),color = (0,0,0),thickness=1)
@@ -145,8 +148,6 @@ def Atomic(
             cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-7*2+4,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
         else:
             cv2.putText(model,text=f"{data['Symbol'][number]}",org=(200-7*2,200+7),color=(0,0,0),thickness=1,fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=0.7)
-    if download == True:
-        cv2.imwrite(f'../img/{number+1}_{data["Name"][number]}.png',model) #배포용
     
     #tkinter 표시
     img = ImageTk.PhotoImage(Image.fromarray(cv2.cvtColor(model,cv2.COLOR_BGR2RGB)))
@@ -166,13 +167,20 @@ def Atomic(
     Elecna_L.configure(text=f"| Electro negativity | \n {data['Electronegativity'][number]}")
     #원자 성질
 
+def download(model,number :int):
+    cv2.imwrite(f'img/{number+1}_{data["Name"][number]}.png',model)
+    #cv2.imwrite(f'../img/{number+1}_{data["Name"][number]}.png',model) #배포용
+
 def buttoncommand():
-    number = 1
+    global N
     for i in range(0,118,1):
         if(symbol_E.get() == data['Symbol'][i]):
-            number=i+1
+            N=i+1
             break
-    Atomic(number=number,rate=10)
+    Atomic(number=N,rate=10)
+
+def download_():
+    download(model=model,number=N-1)
 
 if __name__ == '__main__':
     win = Tk()
@@ -223,6 +231,10 @@ if __name__ == '__main__':
     #버튼
     symbol_B = Button(symbol,text="Input",background="#C9C9C9",command=buttoncommand)
     symbol_B.pack(side='left')
-
+    
+    down_F = Frame(main,width=300,height=20)
+    down_B = Button(down_F,text="Download Image",font=("나눔고딕",13),command=download_,background="#c9c9c9")
+    down_F.pack(side='top')
+    down_B.pack(side='top')
     
     win.mainloop()
