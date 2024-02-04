@@ -5,8 +5,7 @@ from math import sin,cos,pi,radians
 from tkinter import *
 from PIL import Image,ImageTk
 
-#data = pd.read_csv('../files/PubChemElements_all.csv') #배포용
-data = pd.read_csv('files/PubChemElements_all.csv')
+data = pd.read_csv('../files/PubChemElements_all.csv') #배포용
 data = data.fillna(value='')
 
 
@@ -168,8 +167,7 @@ def Atomic(
     #원자 성질
 
 def download(model,number :int):
-    cv2.imwrite(f'img/{number+1}_{data["Name"][number]}.png',model)
-    #cv2.imwrite(f'../img/{number+1}_{data["Name"][number]}.png',model) #배포용
+    cv2.imwrite(f'../img/{number+1}_{data["Name"][number]}.png',model) #배포용
 
 def buttoncommand():
     global N
